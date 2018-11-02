@@ -32,8 +32,8 @@ public class Flights extends HttpServlet {
 		UserRepo urepo = new UserRepo();
 		for (Cookie c : request.getCookies()) {
 			if (c.getName().equals("USERID")) {
-				if (urepo.getUserById(Integer.parseInt(c.getValue())) != null &&
-						urepo.getUserById(Integer.parseInt(c.getValue())).getRole().equals("admin")) {
+				if (urepo.getUserById(Integer.parseInt(c.getValue())) != null
+						&& urepo.getUserById(Integer.parseInt(c.getValue())).getRole().equals("admin")) {
 					response.setContentType("text/html;charset=UTF-8");
 					PrintWriter out = response.getWriter();
 					FlightRepo frepo = new FlightRepo();
@@ -76,6 +76,14 @@ public class Flights extends HttpServlet {
 								+ "<b><p>Delete a flight</p></b>\r\n"
 								+ "Flight number: <input type=\"text\" name=\"id\"  placeholder=\"Enter flight ID\"><br>\r\n"
 								+ "  <input type=\"submit\" value=\"Delete\" >\r\n" + "</form>\r\n" + "</div>\r\n"
+								+ "\r\n" + "</body>\r\n" + "</html>");
+						out.println("<form action=\"update\" method=\"post\">\r\n"
+								+ "<b><p>Update a flight</p></b>\r\n"
+								+ "Flight number: <input type=\"text\" name=\"id\"  placeholder=\"Enter flight ID\"><br>\r\n"
+								+ "Plane type <input type=\"text\" name=\"planetype\"  placeholder=\"\"><br>"
+								+ "Departure date <input type=\"text\" name=\"ddate\"  placeholder=\"\"><br>"
+								+ "Arrival date <input type=\"text\" name=\"adate\"  placeholder=\"\"><br>"
+								+ "  <input type=\"submit\" value=\"Update\" >\r\n" + "</form>\r\n" + "</div>\r\n"
 								+ "\r\n" + "</body>\r\n" + "</html>");
 					} finally {
 						out.close();

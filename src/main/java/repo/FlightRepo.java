@@ -23,9 +23,7 @@ public class FlightRepo {
         EntityManager eniEntityManager = entityManagerFactory.createEntityManager();
         eniEntityManager.getTransaction().begin();
         eniEntityManager.flush(); 
-        eniEntityManager.find(Flight.class, c.getFlightNumber());
-    	//c.setStatus("ACTIVE");
-    	//eniEntityManager.commit();
+        eniEntityManager.merge(c);
         eniEntityManager.getTransaction().commit();
         eniEntityManager.close();
         entityManagerFactory.close();
