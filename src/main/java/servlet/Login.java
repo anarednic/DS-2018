@@ -49,7 +49,10 @@ public class Login extends HttpServlet {
 		UserRepo urepo = new UserRepo();
 		String redirect = "";
 		List<User> users = urepo.viewAllUsers();
+		
 		for (int i = 0; i < users.size(); i++) {
+			System.out.println(username);
+			System.out.println(password);
 			if ((users.get(i).getUsername().equals(username)) && (users.get(i).getPassword().equals(password))) {
 				if (users.get(i).getRole().equals("admin")) {
 					Cookie cookie = new Cookie("USERID", users.get(i).getId().toString());
@@ -58,14 +61,19 @@ public class Login extends HttpServlet {
 					redirect = "/Tema1/flight";
 					break;
 				} else {
+					System.out.println("inainte de cookie");
 					Cookie cookie = new Cookie("USERID", users.get(i).getId().toString());
 					cookie.setMaxAge(900);
 					resp.addCookie(cookie);
-					redirect = "/Tema1/Passenger";
+					System.out.println("dupa cookie");
+					redirect = "/Tema1/Passenger1";
 					break;
 				}
 			} else
+			{
+				System.out.println("else");
 				redirect = "/Tema1/";
+			}
 
 		}
 		resp.sendRedirect(redirect);

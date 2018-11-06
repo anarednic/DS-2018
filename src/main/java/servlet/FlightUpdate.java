@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Locale;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import entity.Flight;
 import repo.FlightRepo;
 
+@WebServlet("/update1")
 public class FlightUpdate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -37,6 +39,7 @@ public class FlightUpdate extends HttpServlet {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+				System.out.println(x.getAirplaneType()+x.getArrivalDate());
 				frepo.updateFlight(x);
 			}
 		}

@@ -10,6 +10,7 @@ import java.util.Locale;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.*;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -72,12 +73,12 @@ public class Flights extends HttpServlet {
 								+ "Departure date: <input type=\"text\" name=\"ddate\"><br>\r\n"
 								+ "Arrival date: <input type=\"text\" name=\"adate\"><br>\r\n"
 								+ "  <input type=\"submit\" value=\"Add\">\r\n" + "</form>\r\n" + "\r\n" + "</div>\r\n"
-								+ "\r\n" + "<div>\r\n" + "<form action=\"flightOp\" method=\"post\">\r\n"
+								+ "\r\n" + "<div>\r\n" + "<form action=\"flightOp1\" method=\"post\">\r\n"
 								+ "<b><p>Delete a flight</p></b>\r\n"
 								+ "Flight number: <input type=\"text\" name=\"id\"  placeholder=\"Enter flight ID\"><br>\r\n"
 								+ "  <input type=\"submit\" value=\"Delete\" >\r\n" + "</form>\r\n" + "</div>\r\n"
 								+ "\r\n" + "</body>\r\n" + "</html>");
-						out.println("<form action=\"update\" method=\"post\">\r\n"
+						out.println("<form action=\"update1\" method=\"post\">\r\n"
 								+ "<b><p>Update a flight</p></b>\r\n"
 								+ "Flight number: <input type=\"text\" name=\"id\"  placeholder=\"Enter flight ID\"><br>\r\n"
 								+ "Plane type <input type=\"text\" name=\"planetype\"  placeholder=\"\"><br>"
